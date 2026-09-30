@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Muhammad Saman - Portofolio & CV Profesional</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.15) !important;
+        }
+
+        .carousel-img {
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+
+        .badge-skill {
+            background-color: #e2e8f0;
+            color: #334155;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 50rem;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-4" href="#">Abdul M. Saman</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#header">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#experience">Pengalaman</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#skills">Keterampilan</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold text-primary" href="#ai-section">Tanya AI</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-4">
+        <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide shadow rounded-4 overflow-hidden" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80" class="d-block w-100 carousel-img" alt="Slide 1">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+                            <h5>Web Development & IT Systems</h5>
+                            <p>Pengembangan situs web perusahaan dan pemeliharaan infrastruktur IT.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop&q=80" class="d-block w-100 carousel-img" alt="Slide 2">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+                            <h5>Coding & STEM Education</h5>
+                            <p>Berpengalaman mengajar pemrograman dan teknologi kepada siswa dari berbagai jenjang.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80" class="d-block w-100 carousel-img" alt="Slide 3">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+                            <h5>Computer Science Graduate</h5>
+                            <p>Lulusan Universitas Bina Nusantara dengan IPK 3.52.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <header id="header" class="py-5 bg-white border-bottom">
+        <div class="container py-3">
+            <div class="row align-items-center g-5 text-center text-lg-start">
+                <div class="col-lg-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80" class="rounded-circle shadow-lg profile-avatar mb-3" alt="Abdul Muhammad Saman">
+                    <h5 class="fw-bold mb-0">Abdul Muhammad Saman</h5>
+                    <p class="text-muted small">Computer Science Graduate</p>
+                </div>
+                <div class="col-lg-8">
+                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold mb-3">Web Developer & IT Officer</span>
+                    <h1 class="display-5 fw-bold mb-3 text-dark">Halo, Selamat Datang!</h1>
+                    <p class="lead text-muted mb-4">
+                        Computer Science fresh graduate (2025) from BINUS University dengan IPK 3.52. Berpengalaman dalam web development, manajemen sistem IT, serta pendidikan coding & STEM.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#experience" class="btn btn-primary rounded-pill px-4 shadow-sm">Lihat Pengalaman</a>
+                        <a href="mailto:abdulmuhammadsaman@gmail.com" class="btn btn-outline-secondary rounded-pill px-4">Hubungi Saya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold fs-1">About Me</h2>
+                <p class="text-muted">Informasi ringkas profil profesional</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 border rounded-4 shadow-sm hover-card border-start border-4 border-primary bg-white h-100">
+                        <h6 class="text-uppercase text-muted small fw-bold mb-1">Pendidikan</h6>
+                        <p class="fs-6 fw-bold mb-0 text-dark">Bachelor of Computer Science<br><span class="text-muted fw-normal">Binus University (IPK: 3.52)</span></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded-4 shadow-sm hover-card border-start border-4 border-primary bg-white h-100">
+                        <h6 class="text-uppercase text-muted small fw-bold mb-1">Lokasi & Kontak</h6>
+                        <p class="fs-6 fw-bold mb-0 text-dark">Kelapa Gading, Jakarta Utara<br><span class="text-muted fw-normal small">abdulmuhammadsaman@gmail.com</span></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded-4 shadow-sm hover-card border-start border-4 border-primary bg-white h-100">
+                        <h6 class="text-uppercase text-muted small fw-bold mb-1">Bahasa</h6>
+                        <p class="fs-6 fw-bold mb-0 text-dark">Indonesia (Native)<br><span class="text-muted fw-normal">English (Professional | TOEFL: 593)</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold fs-1">Pengalaman Kerja & Organisasi</h2>
+                <p class="text-muted">Jejak profesional dan kontribusi di industri</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Pengalaman 1 -->
+                    <div class="card border-0 rounded-4 shadow-sm p-4 mb-4 hover-card">
+                        <div class="d-flex justify-content-between flex-wrap gap-2 mb-2">
+                            <h4 class="fw-bold text-dark mb-0">Web Development & IT Officer</h4>
+                            <span class="badge bg-primary text-white">Aug 2025 - Sekarang</span>
+                        </div>
+                        <h6 class="text-muted fw-semibold mb-3">Mercedes-Benz PT. Panji Rama Otomotif</h6>
+                        <ul class="text-muted mb-0">
+                            <li>Mengembangkan dan memelihara situs web dealer perusahaan menggunakan HTML, CSS, JavaScript, dan WordPress.</li>
+                            <li>Mengimplementasikan pembaruan situs web dan peningkatan UI untuk mendukung kampanye pemasaran.</li>
+                            <li>Mengelola konten web dan komponen berbasis data untuk memastikan kinerja serta keamanan sistem dasar.</li>
+                            <li>Memberikan dukungan IT dan pemeliharaan sistem untuk perangkat keras, perangkat lunak, dan jaringan dasar.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pengalaman 2 -->
+                    <div class="card border-0 rounded-4 shadow-sm p-4 mb-4 hover-card">
+                        <div class="d-flex justify-content-between flex-wrap gap-2 mb-2">
+                            <h4 class="fw-bold text-dark mb-0">Coding Instructor & STEM Instructor</h4>
+                            <span class="badge bg-secondary text-white">Feb 2024 - Jul 2025</span>
+                        </div>
+                        <h6 class="text-muted fw-semibold mb-3">KodeKiddo</h6>
+                        <ul class="text-muted mb-0">
+                            <li>Mengajar pemrograman menggunakan Python, SQL, HTML, CSS, JavaScript, Unity block-based coding, dan AI & Machine Learning.</li>
+                            <li>Berkomunikasi secara efektif dengan orang tua murid setelah sesi uji coba untuk menjelaskan hasil belajar.</li>
+                            <li>Bertindak sebagai juri dalam kompetisi coding utama, mengevaluasi proyek siswa dan keterampilan pemecahan masalah.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pengalaman 3 -->
+                    <div class="card border-0 rounded-4 shadow-sm p-4 hover-card">
+                        <div class="d-flex justify-content-between flex-wrap gap-2 mb-2">
+                            <h4 class="fw-bold text-dark mb-0">Volunteer Math Teacher</h4>
+                            <span class="badge bg-success text-white">Sep 2023 - Nov 2023</span>
+                        </div>
+                        <h6 class="text-muted fw-semibold mb-3">Teach for Indonesia</h6>
+                        <p class="text-muted mb-0">Memberikan pengajaran matematika sukarela kepada siswa sekolah dasar kelas dua untuk mendukung pertumbuhan akademik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold fs-1">Keterampilan</h2>
+                <p class="text-muted">Keahlian teknis dan kemampuan pendukung</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-8">
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <h5 class="fw-bold mb-3 text-primary">Web Development</h5>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge-skill">HTML</span>
+                            <span class="badge-skill">CSS</span>
+                            <span class="badge-skill">JavaScript</span>
+                            <span class="badge-skill">Laravel</span>
+                            <span class="badge-skill">WordPress</span>
+                        </div>
+
+                        <h5 class="fw-bold mb-3 text-primary">Programming & Database</h5>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge-skill">Python (Basic)</span>
+                            <span class="badge-skill">MySQL</span>
+                            <span class="badge-skill">SQL</span>
+                        </div>
+
+                        <h5 class="fw-bold mb-3 text-primary">IT Support & Systems</h5>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge-skill">Hardware Troubleshooting</span>
+                            <span class="badge-skill">Software Support</span>
+                            <span class="badge-skill">Basic Networking</span>
+                            <span class="badge-skill">System Maintenance</span>
+                        </div>
+
+                        <h5 class="fw-bold mb-3 text-primary">Soft Skills</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge-skill">Communication</span>
+                            <span class="badge-skill">Problem Solving</span>
+                            <span class="badge-skill">Analytical Thinking</span>
+                            <span class="badge-skill">Team Collaboration</span>
+                            <span class="badge-skill">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 Abdul Muhammad Saman. All Rights Reserved.</p>
+            <p class="small text-muted mb-0">Website Portofolio Profesional berbasis CV Resmi.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

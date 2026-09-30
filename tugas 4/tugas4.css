@@ -1,0 +1,35 @@
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.15) !important;
+        }
+
+        .carousel-img {
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+
+        .badge-skill {
+            background-color: #e2e8f0;
+            color: #334155;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 50rem;
+            font-size: 0.85rem;
+        }
