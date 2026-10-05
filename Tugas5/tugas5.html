@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokoKita - E-Commerce Modern</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tugas5.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-store me-2 text-primary"></i>TokoKita</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item me-3">
+                        <span class="text-white-50">Total 50 Produk Pilihan</span>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fas fa-shopping-cart me-1"></i> Keranjang
+                            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="container my-4">
+        <div class="hero-section p-5 text-center shadow">
+            <h1 class="display-5 fw-bold mb-3">Temukan Produk Impian Anda</h1>
+            <p class="lead mb-0">Belanja mudah, cepat, dan terpercaya dengan pilihan produk terlengkap dari berbagai kategori.</p>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <div class="row g-3 mb-4">
+            <!-- Search Bar -->
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="fas fa-search text-muted"></i></span>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Cari nama produk...">
+                </div>
+            </div>
+            <!-- Category Filter -->
+            <div class="col-md-4">
+                <select id="categorySelect" class="form-select">
+                    <option value="all">Semua Kategori</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Pakaian">Pakaian</option>
+                    <option value="Sepatu">Sepatu</option>
+                    <option value="Aksesoris">Aksesoris</option>
+                    <option value="Olahraga">Olahraga</option>
+                </select>
+            </div>
+            <!-- Sorting -->
+            <div class="col-md-4">
+                <select id="sortSelect" class="form-select">
+                    <option value="default">Urutkan Produk</option>
+                    <option value="az">Nama: A - Z</option>
+                    <option value="za">Nama: Z - A</option>
+                    <option value="price-low">Harga: Rendah ke Tinggi</option>
+                    <option value="price-high">Harga: Tinggi ke Rendah</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Product Count Indicator -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span id="productCountText" class="text-muted fw-semibold">Menampilkan 50 produk</span>
+        </div>
+
+        <div id="productContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <!-- Products will be rendered dynamically here -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="emptyState" class="text-center py-5 d-none">
+            <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+            <h4>Produk tidak ditemukan</h4>
+            <p class="text-muted">Coba ubah kata kunci pencarian atau filter kategori Anda.</p>
+        </div>
+    </main>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-shopping-cart me-2"></i>Keranjang Belanja</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItemsList" class="list-group mb-3">
+                        <!-- Cart items will render here -->
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center fw-bold fs-5 border-top pt-3">
+                        <span>Total Pembayaran:</span>
+                        <span id="cartTotalPrice" class="text-primary">Rp 0</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" onclick="checkout()">Checkout Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 TokoKita E-Commerce. Dibuat dengan Bootstrap 5.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="tugas5.js"></script>
+</body>
+</html>
