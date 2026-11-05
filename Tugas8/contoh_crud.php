@@ -2,18 +2,24 @@
 require 'koneksi_db.php';
 
 // Contoh Create (Insert data ke tabel users)
-$sql = "INSERT INTO users (nama, email) VALUES (:nama, :email)";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
-    ':nama' => 'Example User',
-    ':email' => 'example@example.com'
-]);
+try {
+    $sql = "INSERT INTO users (nama, email, address) VALUES (:nama, :email, :address)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nama' => 'Example User',
+        ':email' => 'example@example.com',
+        ':address' => 'Jakarta'
+    ]);
+} catch (PDOException $e) {
+    // Lewati jika duplikat
+}
 
-// Contoh Read (Mengambil data dari tabel users)
+$users = [];
 $sql = "SELECT * FROM users";
 $stmt = $pdo->query($sql);
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC); // Simpan ke variabel $users
-
+if ($stmt) {
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?> 
 
 <!DOCTYPE html>
@@ -21,13 +27,19 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // Simpan ke variabel $users
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Example</title>
+    <title>Users</title>
 </head>
 <body>
-    <h1>Daftar Users</h1>
+    <h1>Users</h1>
     <ul>
         <?php foreach ($users as $user): ?>
-            <li><?= htmlspecialchars($user['nama']) ?> - <?= htmlspecialchars($user['email']) ?></li>
+            <li>
+                <strong>ID:</strong> <?= htmlspecialchars($user['id'] ?? '') ?><br>
+                <strong>Name:</strong> <?= htmlspecialchars($user['nama'] ?? '') ?><br>
+                <strong>Email:</strong> <?= htmlspecialchars($user['email'] ?? '') ?><br>
+                <strong>Address:</strong> <?= htmlspecialchars($user['address'] ?? '-') ?>
+            </li>
+            <br>
         <?php endforeach; ?>
     </ul>
 </body>
