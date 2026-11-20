@@ -1,0 +1,158 @@
+<x-layout-component title="Home Page" description="Belanja produk pilihan dengan harga terjangkau, pengiriman cepat, dan pembayaran aman." keywords="home, e-commerce, belanja online" author="My E-commerce Site">
+    {{-- Hero --}}
+    <section class="home-hero">
+        <div class="container-lg">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-6">
+                    <span class="badge home-hero-badge">🛍️ Belanja Mudah &amp; Aman</span>
+                    <h1 class="home-hero-title">Temukan Produk Terbaik untuk Kebutuhan Sehari-hari</h1>
+                    <p class="home-hero-text">
+                        Ribuan produk pilihan dengan harga terjangkau, pengiriman cepat, dan garansi resmi
+                        untuk pengalaman belanja yang menyenangkan.
+                    </p>
+
+                    <form class="home-hero-search" action="{{ url('/search') }}" method="GET" role="search">
+                        <input type="search" name="search" class="form-control" placeholder="Cari produk favoritmu..." aria-label="Cari produk">
+                        <button type="submit" class="btn btn-light">Cari</button>
+                    </form>
+
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="{{ url('/search') }}" class="btn btn-light btn-lg px-4">Belanja Sekarang</a>
+                        <a href="#kategori" class="btn btn-outline-light btn-lg px-4">Jelajahi Kategori</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="home-hero-media">
+                        <img src="{{ asset('images/categories/gta6.webp') }}" alt="GTA VI" class="home-hero-image" onerror="this.onerror=null;this.src='{{ asset('images/categories/default.jpg') }}';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Keunggulan --}}
+    <section class="home-section">
+        <div class="container-lg">
+            <div class="row g-4">
+                @foreach ($features as $feature)
+                    <div class="col-6 col-lg-3">
+                        <div class="home-feature h-100">
+                            <div class="home-feature-icon">{{ $feature['icon'] }}</div>
+                            <h3 class="home-feature-title">{{ $feature['title'] }}</h3>
+                            <p class="home-feature-text mb-0">{{ $feature['text'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- Kategori --}}
+    <section class="home-section" id="kategori">
+        <div class="container-lg">
+            <div class="home-section-head">
+                <div>
+                    <h2 class="home-section-title">Kategori Pilihan</h2>
+                    <p class="home-section-subtitle">Temukan produk berdasarkan kategori favoritmu.</p>
+                </div>
+                <a href="{{ url('/search') }}" class="btn btn-outline-primary">Lihat Semua Kategori</a>
+            </div>
+
+            <div class="row g-4">
+                @foreach ($categories as $category)
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="{{ url('/search?category=' . urlencode($category['name'])) }}" class="home-category text-center h-100">
+                            <span class="home-category-name">{{ $category['name'] }}</span>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            @if ($categories->isEmpty())
+                <div class="home-empty">
+                    <h3 class="home-empty-title">Kategori belum tersedia</h3>
+                    <p class="home-empty-text mb-0">Silakan kembali lagi nanti untuk melihat kategori pilihan.</p>
+                </div>
+            @endif
+        </div>
+    </section>
+
+    {{-- Produk Terlaris --}}
+    <section class="home-section" id="produk">
+        <div class="container-lg">
+            <div class="home-section-head">
+                <div>
+                    <h2 class="home-section-title">Produk Terlaris</h2>
+                    <p class="home-section-subtitle">Produk paling banyak dibeli pelanggan kami.</p>
+                </div>
+                <a href="{{ url('/search') }}" class="btn btn-outline-primary">Lihat Semua Produk</a>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                @foreach ($products as $product)
+                    <div class="col">
+                        <x-product-card
+                            :image="$product->image_url"
+                            :name="$product->name"
+                            :description="$product->description"
+                            :price="$product->price"
+                            :category="$product->product_category->name"
+                            :link="route('products.show', $product->slug)"
+                        />
+                    </div>
+                @endforeach
+            </div>
+            @if ($products->isEmpty())
+                <div class="home-empty">
+                    <h3 class="home-empty-title">Produk belum tersedia</h3>
+                    <p class="home-empty-text mb-0">Belum ada produk untuk ditampilkan. Coba kunjungi lagi nanti.</p>
+                </div>
+            @endif
+            <div class="mt-4">
+                {{ $products->links('pagination::bootstrap-5') }}
+            </div>
+        </div>
+    </section>
+
+    {{-- Promo --}}
+    <section class="home-section">
+        <div class="container-lg">
+            <div class="home-promo">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <span class="badge home-promo-badge">Promo Bulan Ini</span>
+                        <h2 class="home-promo-title">Diskon hingga 50% untuk Produk Pilihan</h2>
+                        <p class="home-promo-text mb-0">
+                            Gunakan kode <strong>BELANJA50</strong> saat checkout dan nikmati potongan harga
+                            spesial untuk pembelian pertamamu.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="{{ url('/search') }}" class="btn btn-light btn-lg px-4">Klaim Promo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Newsletter --}}
+    <section class="home-section">
+        <div class="container-lg">
+            <div class="home-newsletter">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h2 class="home-newsletter-title">Dapatkan Info Promo Terbaru</h2>
+                        <p class="home-newsletter-text mb-0">
+                            Berlangganan newsletter kami dan jadilah yang pertama tahu soal diskon serta produk baru.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="home-newsletter-form" action="{{ url('/') }}" method="GET">
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Alamat email kamu" aria-label="Alamat email" required>
+                            <button type="submit" class="btn btn-primary btn-lg">Berlangganan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</x-layout-component>

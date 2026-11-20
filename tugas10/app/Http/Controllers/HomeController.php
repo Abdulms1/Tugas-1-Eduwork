@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $users = [
-            ['name' => 'John Doe', 'age' => 30],
-            ['name' => 'Jane Smith', 'age' => 25],
-            ['name' => 'Alice Johnson', 'age' => 28]
-        ];
-        $pengguna = [];
+        $products = Product::with('product_category')->latest()->paginate(8);
+        $categories = ProductCategory::all();
 
-        return view('home.index', compact('users', 'pengguna'));
+        return view('home.index', compact('products', 'categories'));
     }
 }
