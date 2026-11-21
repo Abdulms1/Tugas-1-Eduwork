@@ -24,8 +24,15 @@ class HomeController extends Controller
     ];
 
         $categories = ProductCategory::all();
+        // $products = Product::with('product_category')
+        // ->where('stock', '>', 0)
+        // ->latest()
+        // ->paginate(10);
+        // dd($products);
         return view('home.index', compact('features', 'categories', 'products'));
         // return view('home.index', ['pengguna' => $users]);
+
+        
     }
 
     public function search(Request $request)

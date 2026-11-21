@@ -155,4 +155,5 @@
             </div>
         </div>
     </section>
+<script>console.log('Home page loaded');</script>
 </x-layout-component>
